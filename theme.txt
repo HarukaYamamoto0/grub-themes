@@ -1,0 +1,36 @@
+title-text: ""
+desktop-image: "background.png"
+terminal-left: "0"
+terminal-top: "0"
+terminal-border: "0"
+terminal-width: "100%"
+terminal-height: "100%"
+font = "fonts/NotoSans28.pf2"
+
++ boot_menu {
+  left = 134
+  top = 32%
+  width = 472
+  height = 44%
+  item_color = "#cccccc"
+  selected_item_color = "#cccccc"
+  item_icon_space = 33
+  item_height = 55
+  item_padding = 2
+  item_spacing = 20
+  selected_item_pixmap_style = "select_*.png"
+  item_font = "Noto Sans 28"
+  selected_item_font = "Noto Sans 28"
+  icon_width = 55
+  icon_height = 55
+}
+
++ label {
+  left = 134
+  top = 86%
+  align = "left"
+  id = "__timeout__"
+  text = "Selected OS will start in %d seconds"
+  color = "#cccccc"
+  font = "Noto Sans 24"
+}
