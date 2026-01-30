@@ -5,7 +5,6 @@ terminal-top: "0"
 terminal-border: "0"
 terminal-width: "100%"
 terminal-height: "100%"
-font = "fonts/NotoSans28.pf2"
 
 + boot_menu {
   left = 134
@@ -13,10 +12,9 @@ font = "fonts/NotoSans28.pf2"
   width = 472
   height = 44%
   item_color = "#cccccc"
-  selected_item_color = "#cccccc"
   item_icon_space = 33
   item_height = 55
-  item_padding = 2
+  item_padding = 0
   item_spacing = 20
   selected_item_pixmap_style = "select_*.png"
   item_font = "Noto Sans 28"
