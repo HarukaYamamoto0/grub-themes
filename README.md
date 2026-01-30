@@ -5,41 +5,52 @@ A collection of custom, high-quality themes for the GRUB2 bootloader.
 ## 🎨 Available Themes
 
 ### 1. Girl Looking at the Screen
+
 A clean and modern theme featuring an anime-inspired background and a comprehensive set of icons for various Linux distributions.
 
 - **Resolution:** Tested on 1920x1080
 - **Font:** Noto Sans
 
-*(Preview screenshot placeholder)*
+_(Preview screenshot placeholder)_
 
 ## 🚀 Installation
 
 ### Step 1: Clone the repository
+
 ```bash
 git clone https://github.com/harukadev/grub-themes.git
 cd grub-themes
 ```
 
 ### Step 2: Copy the theme
+
 Choose the theme you want to install and copy it to the GRUB themes directory (usually `/boot/grub/themes/`):
+
 ```bash
 sudo mkdir -p /boot/grub/themes
 sudo cp -r themes/girl-looking-at-the-screen /boot/grub/themes/
 ```
 
 ### Step 3: Configure GRUB
+
 Edit the `/etc/default/grub` file:
+
 ```bash
 sudo nano /etc/default/grub
 ```
+
 Add or update the `GRUB_THEME` line:
+
 ```text
 GRUB_THEME="/boot/grub/themes/girl-looking-at-the-screen/theme.txt"
 ```
+
 Make sure `GRUB_TERMINAL_OUTPUT="gfxterm"` is also present and not commented out.
 
 ### Step 4: Update GRUB configuration
+
 Depending on your distribution, run:
+
 - **Ubuntu/Debian/Mint/Kali:**
   ```bash
   sudo update-grub
@@ -52,13 +63,17 @@ Depending on your distribution, run:
 ## 🛠️ Development & Preview
 
 ### Local Preview
+
 You can test the theme without rebooting using `grub2-theme-preview`:
+
 ```bash
 grub2-theme-preview . --resolution 1920x1080 --grub-cfg ./grub.cfg --no-kvm --debug --verbose
 ```
 
 ### Font Generation
+
 If you want to use different fonts, you must convert them to `.pf2` format:
+
 ```bash
 grub-mkfont \
   --size=28 \
@@ -68,5 +83,12 @@ grub-mkfont \
   /path/to/font.ttf
 ```
 
+Get font name:
+
+```bash
+strings ./NotoSans28.pf2 | sed -n '3p'
+```
+
 ## 🤝 Contributing
+
 Feel free to open issues or submit pull requests if you have new themes or improvements!
