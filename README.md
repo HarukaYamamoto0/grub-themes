@@ -11,7 +11,7 @@ A clean and modern theme featuring an anime-inspired background and a comprehens
 - **Resolution:** Tested on 1920x1080
 - **Font:** Noto Sans
 
-_(Preview screenshot placeholder)_
+![girl-looking-at-the-screen theme preview](./previews/girl-looking-at-the-screen-preview.jpeg)
 
 ## 🚀 Installation
 
