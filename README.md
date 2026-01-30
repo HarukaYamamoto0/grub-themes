@@ -64,11 +64,20 @@ Depending on your distribution, run:
 
 ### Local Preview
 
-You can test the theme without rebooting using `grub2-theme-preview`:
+This project includes a `grub.cfg` file specifically designed for theme testing. It acts as a "mock" configuration that simulates a real boot menu without actually booting into an OS.
+
+To test the theme using `grub2-theme-preview`:
 
 ```bash
-grub2-theme-preview . --resolution 1920x1080 --grub-cfg ./grub.cfg --no-kvm --debug --verbose
+grub2-theme-preview . --resolution 1920x1080 --grub-cfg ./grub.cfg --no-kvm
 ```
+
+### Using the Mock `grub.cfg`
+
+The `grub.cfg` is optimized for development:
+- **Variable-based theme selection**: Change `set theme_name="..."` at the top of the file to switch between different themes in the `themes/` directory.
+- **Fast Feedback**: Selecting an entry will display a mock message and wait for 3 seconds instead of performing a real boot.
+- **Clean Structure**: The file is kept minimal and well-documented for easy customization.
 
 ### Font Generation
 
