@@ -18,7 +18,7 @@ terminal-height: "100%"
   item_spacing = 20
   selected_item_pixmap_style = "select_*.png"
   item_font = "Noto Sans 28"
-  selected_item_font = "Noto Sans 28"
+  selected_item_font = "Noto Sans 28 Regular 28"
   icon_width = 55
   icon_height = 55
 }
@@ -30,5 +30,5 @@ terminal-height: "100%"
   id = "__timeout__"
   text = "Selected OS will start in %d seconds"
   color = "#cccccc"
-  font = "Noto Sans 24"
+  font = "Noto Sans 24 Regular 24"
 }
