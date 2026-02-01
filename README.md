@@ -13,71 +13,70 @@ A clean and modern theme featuring an anime-inspired background and a comprehens
 
 ![girl-looking-at-the-screen theme preview](./previews/girl-looking-at-the-screen-preview.jpeg)
 
-## 🚀 Installation
+## 📁 Project Structure
 
-### Step 1: Clone the repository
+This repository is organized as follows:
 
-```bash
-git clone https://github.com/harukadev/grub-themes.git
-cd grub-themes
-```
+- `themes/`: Contains the specific files for each theme (backgrounds, fonts, `theme.txt`).
+- `icons/`: Centralized collection of icons used across all themes.
+- `scripts/`: Utility scripts for development and building.
+- `__tests__/`: Local directory for theme testing and development (ignored by Git).
+- `.github/workflows/`: Automation for packaging themes into ZIP files.
 
-### Step 2: Copy the theme
+## 🚀 Installation & Usage
 
-Choose the theme you want to install and copy it to the GRUB themes directory (usually `/boot/grub/themes/`):
+### Option 1: Download from Releases (Recommended)
 
-```bash
-sudo mkdir -p /boot/grub/themes
-sudo cp -r themes/girl-looking-at-the-screen /boot/grub/themes/
-```
+Download the pre-packaged ZIP file for your favorite theme from the **Releases** section. These ZIPs already include all necessary icons.
 
-### Step 3: Configure GRUB
+### Option 2: Manual Installation (from Source)
 
-Edit the `/etc/default/grub` file:
+If you clone the repository, you'll need to combine the theme files with the icons:
 
-```bash
-sudo nano /etc/default/grub
-```
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/harukadev/grub-themes.git
+   cd grub-themes
+   ```
 
-Add or update the `GRUB_THEME` line:
+2. **Prepare the theme:**
+   Use the utility script to inject icons into a specific theme:
+   ```bash
+   chmod +x scripts/prepare.sh
+   ./scripts/prepare.sh girl-looking-at-the-screen
+   ```
+   The prepared theme will be available in the `__tests__` directory.
 
-```text
-GRUB_THEME="/boot/grub/themes/girl-looking-at-the-screen/theme.txt"
-```
+3. **Copy to GRUB themes directory:**
+   ```bash
+   sudo mkdir -p /boot/grub/themes
+   sudo cp -r __tests__/girl-looking-at-the-screen /boot/grub/themes/
+   ```
 
-Make sure `GRUB_TERMINAL_OUTPUT="gfxterm"` is also present and not commented out.
+4. **Configure GRUB:**
+   Edit `/etc/default/grub` and update the `GRUB_THEME` line:
+   ```text
+   GRUB_THEME="/boot/grub/themes/girl-looking-at-the-screen/theme.txt"
+   ```
 
-### Step 4: Update GRUB configuration
+5. **Update GRUB:**
+   - **Ubuntu/Debian/Mint/Kali:** `sudo update-grub`
+   - **Arch/Fedora/OpenSUSE:** `sudo grub-mkconfig -o /boot/grub/grub.cfg`
 
-Depending on your distribution, run:
+## 🛠️ Development
 
-- **Ubuntu/Debian/Mint/Kali:**
-  ```bash
-  sudo update-grub
-  ```
-- **Arch/Fedora/OpenSUSE:**
-  ```bash
-  sudo grub-mkconfig -o /boot/grub/grub.cfg
-  ```
+### Packaging
 
-## 🛠️ Development & Preview
+The **GitHub Action** automatically packages each theme into a ZIP file when you push to `main` or create a tag starting with `v*`.
 
-### Local Preview
+### Local Development
 
-This project includes a `grub.cfg` file specifically designed for theme testing. It acts as a "mock" configuration that simulates a real boot menu without actually booting into an OS.
-
-To test the theme using `grub2-theme-preview`:
-
-```bash
-grub2-theme-preview . --resolution 1920x1080 --grub-cfg ./grub.cfg --no-kvm
-```
-
-### Using the Mock `grub.cfg`
-
-The `grub.cfg` is optimized for development:
-- **Variable-based theme selection**: Change `set theme_name="..."` at the top of the file to switch between different themes in the `themes/` directory.
-- **Fast Feedback**: Selecting an entry will display a mock message and wait for 3 seconds instead of performing a real boot.
-- **Clean Structure**: The file is kept minimal and well-documented for easy customization.
+1. Edit files in `themes/<theme-name>`.
+2. Run `./scripts/prepare.sh <theme-name>` to update the version in `__tests__/`.
+3. Use `grub2-theme-preview` to visualize:
+   ```bash
+   grub2-theme-preview . --resolution 1920x1080 --grub-cfg ./__tests__/grub.cfg --no-kvm
+   ```
 
 ### Font Generation
 
