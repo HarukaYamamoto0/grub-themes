@@ -1,4 +1,4 @@
 .idea
 grub.ppm
-__tests__
+__tests__/*
 !__tests__/grub.cfg

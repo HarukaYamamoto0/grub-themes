@@ -35,9 +35,9 @@ jobs:
               cp -r icons/* "temp/$theme_name/icons/"
               
               # Create the zip file
-              cd temp
-              zip -r "../dist/${theme_name}.zip" "$theme_name"/*
-              cd ..
+              cd "temp/$theme_name"
+              zip -r "../../dist/${theme_name}.zip" .
+              cd ../..
               
               rm -rf "temp/$theme_name"
             fi
