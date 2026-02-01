@@ -36,7 +36,7 @@ jobs:
               
               # Create the zip file
               cd temp
-              zip -r "../dist/${theme_name}.zip" "$theme_name"
+              zip -r "../dist/${theme_name}.zip" "$theme_name"/*
               cd ..
               
               rm -rf "temp/$theme_name"
